@@ -60,7 +60,8 @@ jobs:
           push: true
           tags: yunal234/devops:${{ github.sha }} # Uses the Git SHA for tagging
           platforms: linux/amd64,linux/arm64 # Multi-platform support
-
+          cache-from: type=registry,ref=yunal234/devops:cache
+          cache-to: type=inline,mode=max
 
       - name: Scan the Docker image
         uses: aquasecurity/trivy-action@master
